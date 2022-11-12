@@ -2,16 +2,16 @@ package site.telion.skyprocoursework02.service;
 
 import org.springframework.stereotype.Service;
 import site.telion.skyprocoursework02.model.Question;
-import site.telion.skyprocoursework02.repository.JavaQuestionRepository;
+import site.telion.skyprocoursework02.repository.MathQuestionRepository;
 
 import java.util.*;
 
-@Service("javaQuestions")
-public class JavaQuestionService implements QuestionService {
+@Service("mathQuestions")
+public class MathQuestionService implements QuestionService {
 
-    final private JavaQuestionRepository repository;
+    final private MathQuestionRepository repository;
 
-    public JavaQuestionService(JavaQuestionRepository repository) {
+    public MathQuestionService(MathQuestionRepository repository) {
         this.repository = repository;
     }
 

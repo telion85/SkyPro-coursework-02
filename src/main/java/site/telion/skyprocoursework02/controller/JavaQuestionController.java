@@ -1,5 +1,6 @@
 package site.telion.skyprocoursework02.controller;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,10 +12,11 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("/exam/java")
-public class JavaController {
+public class JavaQuestionController {
+
     private final QuestionService service;
 
-    public JavaController(QuestionService service) {
+    public JavaQuestionController(@Qualifier("javaQuestions") QuestionService service) {
         this.service = service;
     }
 

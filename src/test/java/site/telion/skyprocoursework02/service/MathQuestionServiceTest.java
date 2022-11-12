@@ -8,7 +8,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import site.telion.skyprocoursework02.model.Question;
-import site.telion.skyprocoursework02.repository.JavaQuestionRepository;
+import site.telion.skyprocoursework02.repository.MathQuestionRepository;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,14 +16,14 @@ import java.util.Set;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(MockitoExtension.class)
-class JavaQuestionServiceTest {
+class MathQuestionServiceTest {
     private final Set<Question> questions = new HashSet<>();
 
     @Mock
-    JavaQuestionRepository javaRepository;
+    MathQuestionRepository mathRepository;
 
     @InjectMocks
-    JavaQuestionService expectedService;
+    MathQuestionService expectedService;
 
     @BeforeEach
     void addElements() {
@@ -31,7 +31,7 @@ class JavaQuestionServiceTest {
         questions.add(new Question("qu2", "an2"));
         questions.add(new Question("qu3", "an3"));
         questions.add(new Question("qu4", "an4"));
-        Mockito.when(javaRepository.getAll()).thenReturn(questions);
+        Mockito.when(mathRepository.getAll()).thenReturn(questions);
     }
 
     @Test
@@ -39,7 +39,7 @@ class JavaQuestionServiceTest {
         expectedService.remove(new Question("qu2", "an2"));
         expectedService.remove(new Question("qu4", "an4"));
 
-        QuestionService actualService = new JavaQuestionService(javaRepository);
+        QuestionService actualService = new MathQuestionService(mathRepository);
         actualService.add(new Question("qu1", "an1"));
         actualService.add(new Question("qu3", "an3"));
 
@@ -49,7 +49,7 @@ class JavaQuestionServiceTest {
 
     @Test
     void testAdd() {
-        QuestionService actualService = new JavaQuestionService(javaRepository);
+        QuestionService actualService = new MathQuestionService(mathRepository);
         actualService.add("qu1", "an1");
         actualService.add("qu2", "an2");
         actualService.add("qu3", "an3");
